@@ -1,0 +1,40 @@
+/* App Finder phone fix (19 Nov 2026). Added at upload time by the old laptop. Keeps the live look. */
+
+/* Room so the "Get the app" button never covers the last line */
+body{padding-bottom:76px}
+
+/* Pages other than Top picks: the stats cards sit below the page's own content (moved by af-fix.js) */
+html[data-afpage="other"] #strip{margin-top:18px;border-top:1px solid var(--line,#334155)}
+
+@media (max-width:640px){
+  /* Top bar: one row. Name on the left, status and theme on the right. */
+  header.top{flex-wrap:nowrap;gap:8px;padding:8px 12px}
+  header.top .brand{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:16px}
+  header.top>.muted,#scanday,#clock,#skin{display:none}
+  header.top #status{flex:0 0 auto;font-size:11px;padding:3px 8px;white-space:nowrap}
+  header.top .tools{flex:0 0 auto;display:flex;gap:6px;margin:0}
+  header.top #theme{padding:4px 10px;font-size:13px}
+
+  /* Tabs on one line, search under them */
+  .tabs{gap:8px 4px;padding:6px 12px 8px}
+  #nav{display:flex;flex-wrap:nowrap;gap:4px;width:100%;overflow-x:auto;scrollbar-width:none}
+  #nav::-webkit-scrollbar{display:none}
+  #nav a,#nav button{flex:0 0 auto;white-space:nowrap;padding:6px 12px}
+
+  /* The plain line on top: shorter intro box */
+  .sub{padding:10px 12px 0}
+  .sub>*{font-size:15px;line-height:1.45}
+
+  /* Rising / fading line: counts on one row, the small print under them */
+  #bar{grid-template-columns:1fr 1fr;gap:4px 8px}
+  #bar .bl{order:1;white-space:nowrap}
+  #bar .br{order:2;text-align:right;white-space:nowrap}
+  #bar>.muted{order:3;grid-column:1/-1;font-size:13px}
+  #bar .bt{order:4;grid-column:1/-1}
+
+  /* Stats cards: two across, smaller */
+  .strip{gap:8px;padding:10px 12px 4px;grid-template-columns:1fr 1fr}
+  .strip>div{padding:8px 10px}
+  .strip span{font-size:12px}
+  .strip b{font-size:17px}
+}
